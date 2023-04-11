@@ -2,7 +2,9 @@ import java.sql.DriverManager;
 import java.sql.Connection;  
 import java.sql.ResultSet;  
 import java.sql.SQLException;  
-import java.sql.Statement;  
+import java.sql.Statement;
+// import java.util.Scanner;
+
 
 public class test {
     public static void main(String[] args) throws Exception {
@@ -23,16 +25,17 @@ public class test {
     }
     public void selectAnimals(){  
         String sql = "SELECT * FROM animals";  
-          
+        int random = (int)(Math.random()*526)+1;  
         try {  
             Connection conn = this.connect();  
             Statement stmt  = conn.createStatement();  
             ResultSet rs    = stmt.executeQuery(sql);  
               
             // loop through the result set  
-            while (rs.next()) {  
-                if(rs.getString("animal").equals("pug")){
-                System.out.println(rs.getString("dog")); 
+            for(int i = 0; i<=random;i++) {
+                rs.next();  
+                if(i==random){
+                System.out.println(rs.getString("animal")); 
                 }
             }  
         } catch (SQLException e) {  
