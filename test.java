@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class test {
     public static void main(String[] args) throws Exception {
         test app = new test();  
-        app.selectAnimals(); 
+        System.out.println(app.selectAnimals()); 
     }
 
     public Connection connect() {  
@@ -23,8 +23,9 @@ public class test {
         }  
         return conn;  
     }
-    public void selectAnimals(){  
+    public String selectAnimals(){  
         String sql = "SELECT * FROM animals";  
+        String H = "";
         int random = (int)(Math.random()*526)+1;  
         try {  
             Connection conn = this.connect();  
@@ -35,11 +36,12 @@ public class test {
             for(int i = 0; i<=random;i++) {
                 rs.next();  
                 if(i==random){
-                System.out.println(rs.getString("animal")); 
+                    H = rs.getString("animal");
                 }
             }  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
-        }  
+        }
+        return H;  
     }    
 }
