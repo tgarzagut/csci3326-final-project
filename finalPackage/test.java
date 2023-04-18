@@ -89,4 +89,17 @@ public class test {
         }
         return H;  
     }
+    public char hint(String s, String h)
+    {
+        char let=0;
+        for(int i=0; i<s.length(); i++)
+        {
+            if(s.charAt(i)!=h.charAt(i))
+            {
+                let=s.charAt(i);
+                break;
+            }
+        }
+        return let;
+    }
 }
