@@ -8,10 +8,6 @@ import java.sql.Statement;
 
 
 public class test {
-    public static void main(String[] args) throws Exception {
-        test app = new test();  
-        System.out.println(app.selectMovie()); 
-    }
 
     public Connection connect() {  
         // SQLite connection string  
