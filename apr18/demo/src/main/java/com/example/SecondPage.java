@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;  
 import java.sql.Statement;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,16 +15,20 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SecondPage {
-
+    String word = " ";
     public static TextField messageinput = new TextField();
     public static Label wordLabel = new Label("_ _ _ _ _");
     //label can be changed
@@ -159,18 +164,41 @@ public class SecondPage {
         gc.strokeLine(160, 60, 170, 70);
 
         //button for the hint, I didnt put any options but it would just make a letter pop up?? I think we can make it disappear after 1 hint
-        Button hintButton = new Button("Hint");
-        hintButton.setStyle("-fx-background-color: yellow; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14px;-fx-border-color: black; -fx-border-width: 3px;");
-        hintButton.setOnAction(event -> {
-            
+        Text hint_label = new Text("Hint");
+        hint_label.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
+        ImageView hint = new ImageView(getClass().getResource("/com/example/images/hint.png").toExternalForm());
+        hint.setFitHeight(100);
+        hint.setPreserveRatio(true);
+        hint.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                
+                System.out.println("Hint pressed.");
+            }
         });
-        //spacers 
-        Region spacer00 = new Region();
-        spacer00.setPrefWidth(50);
+        hint.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                hint.setFitHeight(105);
+                hint.setPreserveRatio(true);
+            }
+        });
+        hint.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                hint.setFitHeight(100);
+                hint.setPreserveRatio(true);
+            }
+        });
+        //spacers
         
+        HBox hintbox = new HBox(hint_label, hint);
 
-        HBox hangman = new HBox(heartbox,spacer0,canvas,spacer00,hintButton);
-        hangman.setAlignment(Pos.CENTER);
+
+        HBox hangman = new HBox(heartbox,canvas,hint);
+        hangman.setAlignment(Pos.TOP_CENTER);
+        hangman.setSpacing(75);
+
 
 
 
