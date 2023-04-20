@@ -163,6 +163,7 @@ public class SecondPage {
         hintButton.setStyle("-fx-background-color: yellow; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14px;-fx-border-color: black; -fx-border-width: 3px;");
         hintButton.setOnAction(event -> {
             
+            
         });
         //spacers 
         Region spacer00 = new Region();
@@ -193,6 +194,7 @@ public class SecondPage {
         button.setPrefHeight(50);
         button.setOnAction(event -> {
             
+
         });
 
         HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);
