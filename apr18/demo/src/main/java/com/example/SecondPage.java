@@ -108,18 +108,29 @@ public class SecondPage {
         }
         return H;  
     }
-    public char hint(String s, String h)
+    public char hint(String s, String g)
     {
         char let=' ';
         for(int i=0; i<s.length(); i++)
         {
-            if(s.charAt(i)!=h.charAt(i))
+            if(s.charAt(i)!=g.charAt(i))
             {
                 let=s.charAt(i);
                 break;
             }
         }
         return let;
+    }
+    public Boolean guessWord(String s, String g)
+    {
+        for(int i=0; i<s.length(); i++)
+        {
+            if(s.charAt(i)!=g.charAt(i))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -220,7 +231,7 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            
+            guessWord(" ",messageinput.getText());
         });
 
         HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);
