@@ -10,27 +10,21 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.canvas.*;
+import javafx.scene.control.*;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 public class SecondPage {
     String word = " ";
     public static TextField messageinput = new TextField();
-    public static Label wordLabel = new Label("_ _ _ _ _");
+    public static Label wordLabel = new Label("EXAMPLE");
     //label can be changed
     public Connection connect() {  
         // SQLite connection string  
@@ -153,37 +147,44 @@ public class SecondPage {
         SVGPath heart3 = new SVGPath();
         heart3.setContent("M0,20 C0,9 8,-8 32,0 C56,-8 68,9 68,20 C68,30 63,37 50,50 L32,68 L14,50 C1,37 -4,30 -4,20 C-4,4 14,-8 32,4 C50,-8 62,4 68,20 C68,31 68,39 68,20 C68,9 60,-8 32,0 C4,-8 0,9 0,20");
         heart3.setFill(Color.RED);
-        VBox heartbox = new VBox(heart1, heart2, heart3);
-        heartbox.setAlignment(Pos.CENTER);
 
         //draws the hangman, It doesnt change but if we need it to ig we will add it
-        Canvas canvas = new Canvas(200, 200);
+        Canvas canvas = new Canvas(225, 225);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.WHITE);
+        gc.setFill(Color.web("#f4f4f4"));
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setStroke(Color.BLACK);
-        gc.setLineWidth(2);
-        gc.strokeLine(20, 180, 180, 180);
-        gc.strokeLine(100, 180, 100, 20);
+        gc.setLineWidth(4);
+        //x1, y1, x2, y2
+        //bottom line
+        gc.strokeLine(50, 200, 150, 200);
+        //line down
+        gc.strokeLine(100, 200, 100, 20);
         gc.strokeLine(100, 20, 160, 20);
         gc.strokeLine(160, 20, 160, 40);
-        gc.strokeOval(145, 30, 30, 30);
-        gc.strokeLine(160, 70, 160, 90);
-        gc.strokeLine(160, 90, 150, 100);
-        gc.strokeLine(160, 90, 170, 100);
-        gc.strokeLine(160, 60, 150, 70);
-        gc.strokeLine(160, 60, 170, 70);
+        //head
+        gc.strokeOval(145, 40, 30, 30);
+        //torso
+        gc.strokeLine(160, 70, 160, 120);
+        //legs
+        gc.strokeLine(160, 120, 145, 140);
+        gc.strokeLine(175, 140, 160, 120);
+        gc.strokeLine(160, 80, 145, 90);
+        gc.strokeLine(160, 80, 175, 90);
 
-        //button for the hint, I didnt put any options but it would just make a letter pop up?? I think we can make it disappear after 1 hint
-        Text hint_label = new Text("Hint");
-        hint_label.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
+        Label hint_label = new Label("HINT");
+        hint_label.setFont(Font.font("Arial"));
+        hint_label.setStyle("-fx-font-size: 36px");
+
         ImageView hint = new ImageView(getClass().getResource("/com/example/images/hint.png").toExternalForm());
         hint.setFitHeight(100);
         hint.setPreserveRatio(true);
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.5);
         hint.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event){
-                
+                hint.setEffect(colorAdjust);
                 System.out.println("Hint pressed.");
             }
         });
@@ -201,29 +202,11 @@ public class SecondPage {
                 hint.setPreserveRatio(true);
             }
         });
-        //spacers
-        
-        HBox hintbox = new HBox(hint_label, hint);
-
-
-        HBox hangman = new HBox(heartbox,canvas,hint);
-        hangman.setAlignment(Pos.TOP_CENTER);
-        hangman.setSpacing(75);
-
-
-
-
         Label entermessage = new Label("Enter Letter Guess!");
         entermessage.setFont(Font.font("Arial"));
         entermessage.setStyle("-fx-font-size: 36px");
-
         messageinput.setPrefWidth(38);
         messageinput.setFont(new Font(20));
-
-        Region spacer = new Region();
-        spacer.setPrefWidth(50);
-        Region spacer2 = new Region();
-        spacer2.setPrefWidth(50);
 
         //button if you want to guess the word
         Button button = new Button("Guess Word!");
@@ -231,21 +214,39 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            guessWord(" ",messageinput.getText());
+        guessWord(" ",messageinput.getText());
         });
 
-        HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);
+    //Layout
+        VBox heartbox = new VBox(heart1, heart2, heart3);
+        //heartbox.setAlignment(Pos.);
+        heartbox.setPadding(new Insets(0, 0, 0, 0));
+        heartbox.setSpacing(20);
+
+        HBox hintbox = new HBox(hint_label, hint);
+        hintbox.setAlignment(Pos.CENTER);
+        //hintbox.setPadding(new Insets(-50, 0, 0, 0));
+        hintbox.setSpacing(20);
+
+        HBox hangman = new HBox(heartbox,canvas,hint);
+        hangman.setPadding(new Insets(-200, 0, 0, 0));
+        hangman.setSpacing(200);
+        hangman.setAlignment(Pos.TOP_CENTER);
+
+        HBox guess = new HBox(entermessage, messageinput,button);
         guess.setPadding(new Insets(30));
         guess.setAlignment(Pos.BOTTOM_CENTER);
+        guess.setSpacing(20);
 
-        wordLabel.setFont(new Font(20));
 
-        
+        wordLabel.setFont(new Font(50));
+
         VBox mainContainer = new VBox(hangman, wordLabel, guess);
         mainContainer.setSpacing(10);
         mainContainer.setAlignment(Pos.CENTER);
         
         Scene currentScene = new Scene(mainContainer, 1024, 768);
+        currentScene.setFill(Color.WHITE);
         newStage.setScene(currentScene);
         newStage.show();
         }

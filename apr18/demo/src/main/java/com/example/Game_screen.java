@@ -15,8 +15,11 @@ import javafx.scene.text.Text;
 public class Game_screen {
     int inc_char_guess = 0;
     Boolean game_won = false;
+    ImageView hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
 
     public Game_screen(Stage oldStage, int gamemode){
+        hangman.setFitHeight(300);
+        hangman.setPreserveRatio(true);
         Stage newStage = new Stage();
         newStage.initOwner(oldStage);
         String mode = " ";
@@ -74,6 +77,31 @@ public class Game_screen {
             public void handle(MouseEvent event){
                 inc_char_guess+=1;
                 System.out.println("Hint pressed." + inc_char_guess);
+                if (inc_char_guess == 0){
+                    hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
+                    hangman.setFitHeight(300);
+                    hangman.setPreserveRatio(true);
+                }
+                else if (inc_char_guess == 1){
+                    hangman = new ImageView(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
+                    hangman.setFitHeight(300);
+                    hangman.setPreserveRatio(true);
+                }
+                else if (inc_char_guess == 2){
+                    hangman = new ImageView(getClass().getResource("/com/example/images/hangman_3.png").toExternalForm());
+                    hangman.setFitHeight(300);
+                    hangman.setPreserveRatio(true);
+                }
+                else if (inc_char_guess == 3){
+                    hangman = new ImageView(getClass().getResource("/com/example/images/hangman_4.png").toExternalForm());
+                    hangman.setFitHeight(300);
+                    hangman.setPreserveRatio(true);
+                }
+                else if (inc_char_guess == 4){
+                    hangman = new ImageView(getClass().getResource("/com/example/images/hangman_5.png").toExternalForm());
+                    hangman.setFitHeight(300);
+                    hangman.setPreserveRatio(true);
+                }
             }
         });
         hint.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>(){
@@ -91,37 +119,8 @@ public class Game_screen {
             }
         });
 
-    //Hangman Pic
-        ImageView hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
-        hangman.setFitHeight(300);
-        hangman.setPreserveRatio(true);
 
-
-        if (inc_char_guess == 0){
-            hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
-            hangman.setFitHeight(300);
-            hangman.setPreserveRatio(true);
-        }
-        else if (inc_char_guess == 1){
-            hangman = new ImageView(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
-            hangman.setFitHeight(300);
-            hangman.setPreserveRatio(true);
-        }
-        else if (inc_char_guess == 2){
-            hangman = new ImageView(getClass().getResource("/com/example/images/hangman_3.png").toExternalForm());
-            hangman.setFitHeight(300);
-            hangman.setPreserveRatio(true);
-        }
-        else if (inc_char_guess == 3){
-            hangman = new ImageView(getClass().getResource("/com/example/images/hangman_4.png").toExternalForm());
-            hangman.setFitHeight(300);
-            hangman.setPreserveRatio(true);
-        }
-        else if (inc_char_guess == 4){
-            hangman = new ImageView(getClass().getResource("/com/example/images/hangman_5.png").toExternalForm());
-            hangman.setFitHeight(300);
-            hangman.setPreserveRatio(true);
-        }
+        
     //Layout
         VBox hearts = new VBox(heart1, heart2, heart3);
         hearts.setAlignment(Pos.TOP_LEFT);

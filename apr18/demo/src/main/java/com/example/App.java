@@ -41,15 +41,15 @@ public class App extends Application {
                 int mode = (int) (Math.random() * (3+1-1)+1);
                 if (mode == 1){
                     //selectAnimals();
-                    System.out.println("mode chosen: " + "animals");
+                    System.out.println("mode chosen: animals");
                 }
                 else if(mode == 2){
                     //selectFruit();
-                    System.out.println("mode chosen: " + "fruit");
+                    System.out.println("mode chosen: fruit");
                 }
                 else{
                     //selectMovie();
-                    System.out.println("mode chosen: " + "movies");
+                    System.out.println("mode chosen: movies");
                 }
                 //new Game_screen(stage, mode);
                 new SecondPage(stage);
