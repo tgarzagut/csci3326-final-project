@@ -148,6 +148,10 @@ public class SecondPage {
     public static class gcounter{
         public static int counter = 0;
     }
+    public class hcounter
+    {
+        public int counter=0;
+    }
     public String set(){
         String word = " ";
         //sets up cab
@@ -210,7 +214,7 @@ public class SecondPage {
         hint.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event){
-                
+                hcounter.counter++;
                 System.out.println("Hint pressed.");
             }
         });
