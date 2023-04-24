@@ -145,8 +145,8 @@ public class SecondPage {
     public static class choice{
         public static int choose;
     }
-    public static class gcounter{
-        public static int counter = 0;
+    public class gcounter{
+        public int counter = 0;
     }
     public String set(){
         String word = " ";
