@@ -114,9 +114,10 @@ public class SecondPage {
             if(s.charAt(i)!=g.charAt(i))
             {
                 g.replace(g.charAt(i),s.charAt(i));
-                break;
+                
             }
         }
+        System.out.println(g);
         return g;
     }
     public Boolean guess(String s, char g)
