@@ -107,18 +107,18 @@ public class SecondPage {
         }
         return H;  
     }
-    public char hint(String s, String g)
+    public String hint(String s, String g)
     {
-        char let=' ';
         for(int i=0; i<s.length(); i++)
         {
             if(s.charAt(i)!=g.charAt(i))
             {
-                let=s.charAt(i);
-                break;
+                g.replace(g.charAt(i),s.charAt(i));
+                
             }
         }
-        return let;
+        System.out.println(g);
+        return g;
     }
     public Boolean guess(String s, char g)
     {
@@ -241,6 +241,7 @@ public class SecondPage {
                  else
                 {
                 hcounter.couter=hcounter.couter+1;
+                messageinput.setText(hint(dword.word,messageinput.getText()));
                 System.out.println("Hint pressed.");
                 }
             }
