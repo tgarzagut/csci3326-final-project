@@ -246,7 +246,6 @@ public class SecondPage {
 
         messageinput.setPrefWidth(38);
         messageinput.setFont(new Font(20));
-        
 
         Region spacer = new Region();
         spacer.setPrefWidth(50);
