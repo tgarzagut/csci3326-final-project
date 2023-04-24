@@ -235,6 +235,7 @@ public class SecondPage {
             public void handle(MouseEvent event){
                 if(hcounter.couter==3)
                 {
+                    hint.setEffect(colorAdjust);
                     hint.disableProperty();
                 }
                  else
