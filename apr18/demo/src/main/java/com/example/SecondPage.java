@@ -147,10 +147,13 @@ public class SecondPage {
     public static class choice{
         public static int choose;
     }
-    public class gcounter{
+    public static class gcounter{
         public static int couter = 0;
     }
-    public String set(){
+    public static class dword{
+        public static String word = set();
+    }
+    public static String set(){
         String word = " ";
         //sets up cab
         SecondPage cab = new SecondPage(null);
@@ -266,8 +269,8 @@ public class SecondPage {
              else
             {
                 gcounter.couter= gcounter.couter+1;
-                System.out.println(set());    
-                System.out.println(guessWord(set(),messageinput.getText()));
+                System.out.println(dword.word);    
+                System.out.println(guessWord(dword.word,messageinput.getText()));
             }
         });
 
