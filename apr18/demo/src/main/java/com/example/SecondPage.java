@@ -293,11 +293,7 @@ public class SecondPage {
             if(gcounter.couter==3)
             {
                 button.disableProperty();
-<<<<<<< HEAD
                 new Lose(oldStage);
-=======
-
->>>>>>> b9d4a631974f0a88daebffd4ece82e65ab9c7c9f
             }
              else
             {
