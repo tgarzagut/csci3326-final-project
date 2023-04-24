@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;  
 import java.sql.Statement;
 
+import org.w3c.dom.css.Counter;
+
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -146,7 +148,7 @@ public class SecondPage {
         public static int choose;
     }
     public class gcounter{
-        public int counter = 0;
+        public static int counter = 0;
     }
     public String set(){
         String word = " ";
@@ -264,7 +266,7 @@ public class SecondPage {
             }
              else
             {
-                gcounter.counter++;
+                gcounter.counter= gcounter.counter+1;
                 System.out.println(set());    
                 System.out.println(guessWord(set(),messageinput.getText()));
             }
