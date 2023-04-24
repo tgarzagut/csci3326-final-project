@@ -240,6 +240,10 @@ public class SecondPage {
                 }
                  else
                 {
+                    if(hcounter.couter==2)
+                {
+                    hint.setEffect(colorAdjust);
+                }
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
                 }
