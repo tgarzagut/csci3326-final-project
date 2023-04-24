@@ -255,8 +255,16 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            System.out.println(set());    
-            System.out.println(guessWord(set(),messageinput.getText()));
+            if(gcounter==3)
+            {
+                button.disableProperty();
+            }
+            else
+            {
+                gcounter++;
+                System.out.println(set());    
+                System.out.println(guessWord(set(),messageinput.getText()));
+            }
         });
 
         HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);
