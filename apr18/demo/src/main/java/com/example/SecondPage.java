@@ -255,13 +255,13 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            if(gcounter==3)
+            //if(gcounter==3)
             {
                 button.disableProperty();
             }
-            else
+           // else
             {
-                gcounter++;
+               // gcounter++;
                 System.out.println(set());    
                 System.out.println(guessWord(set(),messageinput.getText()));
             }
