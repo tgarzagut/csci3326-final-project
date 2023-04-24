@@ -34,7 +34,7 @@ public class SecondPage {
     //label can be changed
     public Connection connect() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:sampleDB.db";  
+        String url = "jdbc:sqlite:C:/Users/poket/Downloads/java-labs/FinalJAVA/csci3326-final-project/apr18/demo/src/sampleDB.db";  
         Connection conn = null;  
         try {  
             conn = DriverManager.getConnection(url);  
