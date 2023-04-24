@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;  
 import java.sql.Statement;
 
-import org.w3c.dom.css.Counter;
+//import org.w3c.dom.css.Counter;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -148,7 +148,7 @@ public class SecondPage {
         public static int choose;
     }
     public class gcounter{
-        public static int counter = 0;
+        public static int couter = 0;
     }
     public String set(){
         String word = " ";
@@ -241,7 +241,6 @@ public class SecondPage {
 
 
 
-
         Label entermessage = new Label("Enter Letter Guess!");
         entermessage.setFont(Font.font("Arial"));
         entermessage.setStyle("-fx-font-size: 36px");
@@ -260,13 +259,13 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            if(gcounter.counter==3)
+            if(gcounter.couter==3)
             {
                 button.disableProperty();
             }
              else
             {
-                gcounter.counter= gcounter.counter+1;
+                gcounter.couter= gcounter.couter+1;
                 System.out.println(set());    
                 System.out.println(guessWord(set(),messageinput.getText()));
             }
