@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;  
 import java.sql.SQLException;  
 import java.sql.Statement;
-
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -145,12 +144,12 @@ public class SecondPage {
     public static class choice{
         public static int choose;
     }
-    public class gcounter{
-        public int counter = 0;
+    public static class gcounter{
+        public static int counter = 0;
     }
-    public class hcounter
+    public static class hcounter
     {
-        public int counter=0;
+        public static int counter=0;
     }
     public String set(){
         String word = " ";
@@ -164,6 +163,15 @@ public class SecondPage {
             word = cab.selectMovie();
         }
         return word;
+    }
+    public String getSize(String s)
+    {
+        String g=s;
+        for(int i=0; i<s.length();i++)
+        {
+            g.replace(g.charAt(i), '_');
+        }
+        return g;
     }
 
 
@@ -214,8 +222,15 @@ public class SecondPage {
         hint.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event){
-                hcounter.counter++;
+                if(hcounter.counter==3)
+                {
+                    hint.disableProperty();
+                }
+                 else
+                {
+                hcounter.counter=hcounter.counter+1;
                 System.out.println("Hint pressed.");
+                }
             }
         });
         hint.addEventHandler(MouseEvent.MOUSE_ENTERED, new EventHandler<MouseEvent>(){
@@ -251,6 +266,7 @@ public class SecondPage {
         messageinput.setPrefWidth(38);
         messageinput.setFont(new Font(20));
 
+        wordLabel.setText(getSize(messageinput.getText()));
         Region spacer = new Region();
         spacer.setPrefWidth(50);
         Region spacer2 = new Region();
@@ -268,7 +284,7 @@ public class SecondPage {
             }
              else
             {
-                gcounter.counter++;
+                gcounter.counter= gcounter.counter+1;
                 System.out.println(set());    
                 System.out.println(guessWord(set(),messageinput.getText()));
             }
