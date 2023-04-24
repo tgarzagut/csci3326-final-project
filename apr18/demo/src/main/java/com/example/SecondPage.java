@@ -293,6 +293,7 @@ public class SecondPage {
             if(gcounter.couter==3)
             {
                 button.disableProperty();
+                new Lose(oldStage);
             }
              else
             {
