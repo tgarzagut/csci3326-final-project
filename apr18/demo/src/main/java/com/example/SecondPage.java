@@ -253,7 +253,7 @@ public class SecondPage {
         spacer2.setPrefWidth(50);
        
         //button if you want to guess the word
-        Button button = new Button("Guess Letter!");
+        Button button = new Button("Guess Word!");
         button.setStyle("-fx-background-color: purple; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px"); 
         button.setPrefWidth(120);
         button.setPrefHeight(50);
@@ -262,11 +262,11 @@ public class SecondPage {
             {
                 button.disableProperty();
             }
-            else
+             else
             {
                 gcounter.counter++;
                 System.out.println(set());    
-                System.out.println(guess(set(),messageinput.getText()));
+                System.out.println(guessWord(set(),messageinput.getText()));
             }
         });
 
