@@ -131,6 +131,7 @@ public class SecondPage {
 
 
     public SecondPage(Stage oldStage){
+        int counter=0;
         Stage newStage = new Stage();
         newStage.initOwner(oldStage);
         
@@ -173,7 +174,10 @@ public class SecondPage {
         Button hintButton = new Button("Hint");
         hintButton.setStyle("-fx-background-color: yellow; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14px;-fx-border-color: black; -fx-border-width: 3px;");
         hintButton.setOnAction(event -> {
-            
+            if(counter==3)
+            {
+                
+            }
         });
         //spacers 
         Region spacer00 = new Region();
@@ -203,7 +207,7 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            guessWord(" ",messageinput.getText());
+            //guessWord(word,messageinput.getText());
         });
 
         HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);
