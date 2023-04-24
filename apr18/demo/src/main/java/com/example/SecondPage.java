@@ -107,18 +107,18 @@ public class SecondPage {
         }
         return H;  
     }
-    public String hint(String s, String g)
+    public char hint(String s, String g)
     {
+        char let=' ';
         for(int i=0; i<s.length(); i++)
         {
             if(s.charAt(i)!=g.charAt(i))
             {
-                g.replace(g.charAt(i),s.charAt(i));
-                
+                let=s.charAt(i);
+                break;
             }
         }
-        System.out.println(g);
-        return g;
+        return let;
     }
     public Boolean guess(String s, char g)
     {
@@ -174,6 +174,7 @@ public class SecondPage {
         {
             g.replace(g.charAt(i), '_');
         }
+        System.out.println(g);
         return g;
     }
 
@@ -239,9 +240,8 @@ public class SecondPage {
                     hint.disableProperty();
                 }
                  else
-                {
+                { 
                 hcounter.couter=hcounter.couter+1;
-                messageinput.setText(hint(dword.word,messageinput.getText()));
                 System.out.println("Hint pressed.");
                 }
             }
@@ -278,7 +278,7 @@ public class SecondPage {
         messageinput.setPrefWidth(38);
         messageinput.setFont(new Font(20));
 
-        wordLabel.setText(getSize(messageinput.getText()));
+       // wordLabel.setText(getSize(dword.word));
         Region spacer = new Region();
         spacer.setPrefWidth(50);
         Region spacer2 = new Region();
@@ -293,12 +293,16 @@ public class SecondPage {
             if(gcounter.couter==3)
             {
                 button.disableProperty();
+                new Lose(oldStage);
             }
              else
             {
                 gcounter.couter= gcounter.couter+1;
                 System.out.println(dword.word);    
                 System.out.println(guessWord(dword.word,messageinput.getText()));
+                if(guessWord(dword.word, messageinput.getText())==true){
+                    new Win(oldStage);
+                }
             }
         });
 
