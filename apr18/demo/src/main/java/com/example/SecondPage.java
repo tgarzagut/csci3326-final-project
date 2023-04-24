@@ -120,6 +120,17 @@ public class SecondPage {
         }
         return let;
     }
+    public Boolean guess(String s, char g)
+    {
+        for(int i =0; i<s.length();i++)
+        {
+            if(s.charAt(i)==g)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public Boolean guessWord(String s, String g)
     {
         for(int i=0; i<s.length(); i++)
