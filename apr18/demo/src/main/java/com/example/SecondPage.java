@@ -145,13 +145,15 @@ public class SecondPage {
         public static int choose;
     }
     public static class gcounter{
-        public static int counter = 0;
+        public static int couter = 0;
     }
-    public static class hcounter
-    {
-        public static int counter=0;
+    public static class hcounter{
+        public static int couter = 0;
     }
-    public String set(){
+    public static class dword{
+        public static String word = set();
+    }
+    public static String set(){
         String word = " ";
         //sets up cab
         SecondPage cab = new SecondPage(null);
@@ -196,22 +198,28 @@ public class SecondPage {
         heartbox.setAlignment(Pos.CENTER);
 
         //draws the hangman, It doesnt change but if we need it to ig we will add it
-        Canvas canvas = new Canvas(200, 200);
+        Canvas canvas = new Canvas(225, 225);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.WHITE);
+        gc.setFill(Color.web("#f4f4f4"));
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         gc.setStroke(Color.BLACK);
-        gc.setLineWidth(2);
-        gc.strokeLine(20, 180, 180, 180);
-        gc.strokeLine(100, 180, 100, 20);
+        gc.setLineWidth(4);
+        //x1, y1, x2, y2
+        //bottom line
+        gc.strokeLine(50, 200, 150, 200);
+        //line down
+        gc.strokeLine(100, 200, 100, 20);
         gc.strokeLine(100, 20, 160, 20);
         gc.strokeLine(160, 20, 160, 40);
-        gc.strokeOval(145, 30, 30, 30);
-        gc.strokeLine(160, 70, 160, 90);
-        gc.strokeLine(160, 90, 150, 100);
-        gc.strokeLine(160, 90, 170, 100);
-        gc.strokeLine(160, 60, 150, 70);
-        gc.strokeLine(160, 60, 170, 70);
+        //head
+        gc.strokeOval(145, 40, 30, 30);
+        //torso
+        gc.strokeLine(160, 70, 160, 120);
+        //legs
+        gc.strokeLine(160, 120, 145, 140);
+        gc.strokeLine(175, 140, 160, 120);
+        gc.strokeLine(160, 80, 145, 90);
+        gc.strokeLine(160, 80, 175, 90);
 
         //button for the hint, I didnt put any options but it would just make a letter pop up?? I think we can make it disappear after 1 hint
         Text hint_label = new Text("Hint");
@@ -222,13 +230,13 @@ public class SecondPage {
         hint.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event){
-                if(hcounter.counter==3)
+                if(hcounter.couter==3)
                 {
                     hint.disableProperty();
                 }
                  else
                 {
-                hcounter.counter=hcounter.counter+1;
+                hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
                 }
             }
@@ -258,7 +266,6 @@ public class SecondPage {
 
 
 
-
         Label entermessage = new Label("Enter Letter Guess!");
         entermessage.setFont(Font.font("Arial"));
         entermessage.setStyle("-fx-font-size: 36px");
@@ -278,15 +285,15 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            if(gcounter.counter==3)
+            if(gcounter.couter==3)
             {
                 button.disableProperty();
             }
              else
             {
-                gcounter.counter= gcounter.counter+1;
-                System.out.println(set());    
-                System.out.println(guessWord(set(),messageinput.getText()));
+                gcounter.couter= gcounter.couter+1;
+                System.out.println(dword.word);    
+                System.out.println(guessWord(dword.word,messageinput.getText()));
             }
         });
 
