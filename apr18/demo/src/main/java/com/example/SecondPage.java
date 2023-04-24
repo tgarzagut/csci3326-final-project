@@ -298,6 +298,9 @@ public class SecondPage {
                 gcounter.couter= gcounter.couter+1;
                 System.out.println(dword.word);    
                 System.out.println(guessWord(dword.word,messageinput.getText()));
+                if(guessWord(dword.word, messageinput.getText())==true){
+                    new Win(oldStage);
+                }
             }
         });
 
