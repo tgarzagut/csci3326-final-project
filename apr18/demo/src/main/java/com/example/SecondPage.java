@@ -174,6 +174,7 @@ public class SecondPage {
         {
             g.replace(g.charAt(i), '_');
         }
+        System.out.println(g);
         return g;
     }
 
@@ -239,7 +240,7 @@ public class SecondPage {
                     hint.disableProperty();
                 }
                  else
-                {
+                { 
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
                 }
@@ -277,7 +278,7 @@ public class SecondPage {
         messageinput.setPrefWidth(38);
         messageinput.setFont(new Font(20));
 
-        wordLabel.setText(getSize(messageinput.getText()));
+       // wordLabel.setText(getSize(dword.word));
         Region spacer = new Region();
         spacer.setPrefWidth(50);
         Region spacer2 = new Region();
@@ -292,7 +293,11 @@ public class SecondPage {
             if(gcounter.couter==3)
             {
                 button.disableProperty();
+<<<<<<< HEAD
                 new Lose(oldStage);
+=======
+
+>>>>>>> b9d4a631974f0a88daebffd4ece82e65ab9c7c9f
             }
              else
             {
