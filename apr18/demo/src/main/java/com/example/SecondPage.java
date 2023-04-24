@@ -140,6 +140,10 @@ public class SecondPage {
         SecondPage cab = new SecondPage(null);
         if(choice.choose == 1){
             word = cab.selectAnimals();
+        }else if(choice.choose == 2){
+            word = cab.selectFruit();
+        }else{
+            word = cab.selectMovie();
         }
         return word;
     }
