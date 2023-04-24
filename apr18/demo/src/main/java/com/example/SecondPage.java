@@ -17,6 +17,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -218,10 +219,12 @@ public class SecondPage {
         ImageView hint = new ImageView(getClass().getResource("/com/example/images/hint.png").toExternalForm());
         hint.setFitHeight(100);
         hint.setPreserveRatio(true);
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.5);
         hint.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent event){
-                
+                hint.setEffect(colorAdjust);
                 System.out.println("Hint pressed.");
             }
         });
