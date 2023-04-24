@@ -28,7 +28,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class SecondPage {
-    String word = " ";
     public static TextField messageinput = new TextField();
     public static Label wordLabel = new Label("_ _ _ _ _");
     //label can be changed
@@ -132,13 +131,23 @@ public class SecondPage {
         }
         return true;
     }
-
+    public static class choice{
+        public static int choose;
+    }
+    public String set(){
+        String word = " ";
+        //sets up cab
+        SecondPage cab = new SecondPage(null);
+        if(choice.choose == 1){
+            word = cab.selectAnimals();
+        }
+        return word;
+    }
 
 
     public SecondPage(Stage oldStage){
         Stage newStage = new Stage();
         newStage.initOwner(oldStage);
-        
         newStage.setTitle("Hangman Deluxe! - Game");
 
         Region spacer0 = new Region();
@@ -224,14 +233,15 @@ public class SecondPage {
         spacer.setPrefWidth(50);
         Region spacer2 = new Region();
         spacer2.setPrefWidth(50);
-
+       
         //button if you want to guess the word
         Button button = new Button("Guess Word!");
         button.setStyle("-fx-background-color: purple; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px"); 
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            guessWord(" ",messageinput.getText());
+            System.out.println(set());    
+            System.out.println(guessWord(set(),messageinput.getText()));
         });
 
         HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);

@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.example.SecondPage.choice;
+
 //import javax.naming.directory.SearchControls;
 
 /**
@@ -87,6 +89,7 @@ public class App extends Application {
             public void handle(MouseEvent event){
                 animalButton.setFitHeight(60);
                 animalButton.setPreserveRatio(true);
+                choice.choose = 1;
             }
         });
         animalButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>(){
@@ -114,6 +117,7 @@ public class App extends Application {
             public void handle(MouseEvent event){
                 fruitsButton.setFitHeight(60);
                 fruitsButton.setPreserveRatio(true);
+                choice.choose = 2;
             }
         });
         fruitsButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>(){
@@ -141,6 +145,7 @@ public class App extends Application {
             public void handle(MouseEvent event){
                 moviesButton.setFitHeight(60);
                 moviesButton.setPreserveRatio(true);
+                choice.choose = 3;
             }
         });
         moviesButton.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>(){
