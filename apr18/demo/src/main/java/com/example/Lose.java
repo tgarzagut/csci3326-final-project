@@ -20,7 +20,7 @@ public class Lose {
         Label congrats = new Label("Oh no!");
         congrats.setStyle("-fx-font-size: 36px");
 
-        Label loseLabel = new Label("THE WORD WAS "+dword);
+        Label loseLabel = new Label("THE WORD WAS \n"+dword);
         loseLabel.setStyle("-fx-font-size: 36px");
         
         VBox finalBox = new VBox(congrats, game_status,loseLabel);

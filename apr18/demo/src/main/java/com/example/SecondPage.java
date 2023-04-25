@@ -366,25 +366,25 @@ public class SecondPage {
                 insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
             corr_guess.setText(insideCchar);
             }
-            if(ccounter.couter==1){
+            if(ccounter.couter==2){
                 Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
                 hangman.setImage(hang0Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
-            else if(ccounter.couter==2){
+            else if(ccounter.couter==3){
                 Image hang1Image = new Image(getClass().getResource("/com/example/images/hangman_3.png").toExternalForm());
                 hangman.setImage(hang1Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
-            else if(ccounter.couter==3){
+            else if(ccounter.couter==4){
                 Image hang2Image = new Image(getClass().getResource("/com/example/images/hangman_4.png").toExternalForm());
                 hangman.setImage(hang2Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
-            else if(ccounter.couter==4){
+            else if(ccounter.couter==5){
                 Image hang3Image = new Image(getClass().getResource("/com/example/images/hangman_5.png").toExternalForm());
                 hangman.setImage(hang3Image);
                 hangman.setFitHeight(300);
