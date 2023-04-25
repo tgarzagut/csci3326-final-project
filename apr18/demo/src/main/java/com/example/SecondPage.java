@@ -35,7 +35,7 @@ public class SecondPage {
         // SQLite connection string  
         String url = "jdbc:sqlite:C:/Users/poket/Downloads/java-labs/FinalJAVA/csci3326-final-project/apr18/demo/src/sampleDB.db";  
         Connection conn = null;  
-        try {  
+        try {
             conn = DriverManager.getConnection(url);  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
