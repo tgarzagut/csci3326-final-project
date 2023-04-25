@@ -110,12 +110,20 @@ public class SecondPage {
     public char hint(String s, char g)
     {
         char let=' ';
+        char hints []= new char [s.length()];
         for(int i=0; i<s.length(); i++)
         {
             if(s.charAt(i)!=g)
             {
-                let = s.charAt(i);
-                break;
+                hints[i] = s.charAt(i);
+            }
+        }
+        for(int x=0; x<hints.length; x++)
+        {
+            int rando= (int)(Math.random()*s.length());
+            if(hints[x]!=g && hints[x]!=' ')
+            {
+                return hints[rando];
             }
         }
         return let;
