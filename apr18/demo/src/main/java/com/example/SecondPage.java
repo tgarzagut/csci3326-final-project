@@ -288,7 +288,7 @@ public class SecondPage {
             if(gcounter.couter==3)
             {
                 button.disableProperty();
-                new Lose(oldStage);
+                new Lose(newStage);
             }
              else
             {
@@ -296,7 +296,7 @@ public class SecondPage {
                 System.out.println(dword.word);    
                 System.out.println(guessWord(dword.word,messageinput.getText()));
                 if(guessWord(dword.word, messageinput.getText())==true){
-                    new Win(oldStage);
+                    new Win(newStage);
                 }
             }
         });
