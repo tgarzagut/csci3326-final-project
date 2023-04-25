@@ -107,7 +107,7 @@ public class SecondPage {
         }
         return H;  
     }
-    public char hint(String s, char g)
+    public char hint(String s, String g)
     {
         char let=' ';
         char hints []= new char [s.length()];
@@ -267,7 +267,7 @@ public class SecondPage {
                 }
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
-                System.out.println(hint(dword.word, messageinput.getText().charAt(0)));
+                System.out.println(hint(dword.word, ));
                 }
             }
         });
