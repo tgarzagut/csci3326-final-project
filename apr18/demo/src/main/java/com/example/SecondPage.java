@@ -287,6 +287,7 @@ public class SecondPage {
         button.setOnAction(event -> {
             if(gcounter.couter==3)
             {
+                heart3.setFill(Color.BLACK);
                 button.disableProperty();
                 new Lose(newStage);
             }
@@ -298,6 +299,11 @@ public class SecondPage {
                 if(guessWord(dword.word, messageinput.getText())==true){
                     new Win(newStage);
                 }
+            }
+            if(gcounter.couter==1){
+                heart1.setFill(Color.BLACK);
+            }else if(gcounter.couter==2){
+                heart2.setFill(Color.BLACK);
             }
         });
         Button guesscharButton = new Button("Guess character");
