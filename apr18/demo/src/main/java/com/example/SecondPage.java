@@ -115,6 +115,7 @@ public class SecondPage {
             if(s.charAt(i)!=g)
             {
                 let = s.charAt(i);
+                break;
             }
         }
         return let;
