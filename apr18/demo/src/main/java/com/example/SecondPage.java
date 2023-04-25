@@ -355,6 +355,10 @@ public class SecondPage {
                 insidechar = insidechar + " " + messageinput.getText().charAt(0);
                 wrong_guess.setText(insidechar);
             }
+            else{
+                insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
+            corr_guess.setText(insideCchar);
+            }
             if(ccounter.couter==1){
                 Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
                 hangman.setImage(hang0Image);
@@ -382,8 +386,6 @@ public class SecondPage {
             }
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
-            insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
-            corr_guess.setText(insideCchar);
         });
         HBox hintbox = new HBox(hint_label, hint);
 
