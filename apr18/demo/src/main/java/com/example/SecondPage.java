@@ -305,13 +305,8 @@ public class SecondPage {
         guesscharButton.setPrefWidth(120);
         guesscharButton.setPrefHeight(50);
         guesscharButton.setOnAction(event -> {
-            int i = 0;
             System.out.println(dword.word);    
-            System.out.println(guess(dword.word,messageinput.getText().charAt(i)));
-            if(guess(dword.word, messageinput.getText().charAt(i))==true){
-                new Win(oldStage);
-                i++;
-            }
+            System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
         });
         HBox hintbox = new HBox(hint_label, hint);
 
