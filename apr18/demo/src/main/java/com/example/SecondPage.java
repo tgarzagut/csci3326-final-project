@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -179,7 +180,7 @@ public class SecondPage {
         System.out.println(g);
         return g;
     }
-
+    ImageView hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
 
     public SecondPage(Stage oldStage){
         Stage newStage = new Stage();
@@ -202,28 +203,29 @@ public class SecondPage {
         heartbox.setAlignment(Pos.CENTER);
 
         //draws the hangman, It doesnt change but if we need it to ig we will add it
-        Canvas canvas = new Canvas(225, 225);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.web("#f4f4f4"));
-        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(4);
-        //x1, y1, x2, y2
-        //bottom line
-        gc.strokeLine(50, 200, 150, 200);
-        //line down
-        gc.strokeLine(100, 200, 100, 20);
-        gc.strokeLine(100, 20, 160, 20);
-        gc.strokeLine(160, 20, 160, 40);
-        //head
-        gc.strokeOval(145, 40, 30, 30);
-        //torso
-        gc.strokeLine(160, 70, 160, 120);
-        //legs
-        gc.strokeLine(160, 120, 145, 140);
-        gc.strokeLine(175, 140, 160, 120);
-        gc.strokeLine(160, 80, 145, 90);
-        gc.strokeLine(160, 80, 175, 90);
+        // Canvas canvas = new Canvas(225, 225);
+        // GraphicsContext gc = canvas.getGraphicsContext2D();
+        // gc.setFill(Color.web("#f4f4f4"));
+        // gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        // gc.setStroke(Color.BLACK);
+        // gc.setLineWidth(4);
+        // //x1, y1, x2, y2
+        // //bottom line
+        // gc.strokeLine(50, 200, 150, 200);
+        // //line down
+        // gc.strokeLine(100, 200, 100, 20);
+        // gc.strokeLine(100, 20, 160, 20);
+        // gc.strokeLine(160, 20, 160, 40);
+        // //head
+        // gc.strokeOval(145, 40, 30, 30);
+        // //torso
+        // gc.strokeLine(160, 70, 160, 120);
+        // //legs
+        // gc.strokeLine(160, 120, 145, 140);
+        // gc.strokeLine(175, 140, 160, 120);
+        // gc.strokeLine(160, 80, 145, 90);
+        // gc.strokeLine(160, 80, 175, 90);
+
 
         //button for the hint, I didnt put any options but it would just make a letter pop up?? I think we can make it disappear after 1 hint
         Text hint_label = new Text("Hint");
@@ -314,6 +316,9 @@ public class SecondPage {
         guesscharButton.setPrefWidth(120);
         guesscharButton.setPrefHeight(50);
         guesscharButton.setOnAction(event -> {
+            if(ccounter.couter==1){
+                hangman = (new ImageView(getClass().getResource("/com/example/images/hangman_2").toExternalForm()));
+            }
             if(ccounter.couter==4){
                 new Lose(newStage);
             }
@@ -326,9 +331,9 @@ public class SecondPage {
         HBox hintbox = new HBox(hint_label, hint);
 
 
-        HBox hangman = new HBox(heartbox,canvas,hint);
-        hangman.setAlignment(Pos.TOP_CENTER);
-        hangman.setSpacing(150);
+        HBox toprow = new HBox(heartbox, hangman, hint);
+        toprow.setAlignment(Pos.TOP_CENTER);
+        toprow.setSpacing(150);
 
         HBox buttonsrow = new HBox(button, guesscharButton);
         buttonsrow.setAlignment(Pos.CENTER);
@@ -342,7 +347,7 @@ public class SecondPage {
         wordLabel.setFont(new Font(20));
 
         
-        VBox mainContainer = new VBox(hangman, wordLabel, guess);
+        VBox mainContainer = new VBox(toprow, wordLabel, guess);
         mainContainer.setSpacing(10);
         mainContainer.setAlignment(Pos.CENTER);
         
