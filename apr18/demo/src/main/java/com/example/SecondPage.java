@@ -280,7 +280,7 @@ public class SecondPage {
                 System.out.println("Hint pressed.");
                 System.out.println(hint(dword.word, messageinput.getText().charAt(0)));
 
-                ichar = ichar + " " + messageinput.getText().charAt(0);
+                ichar = ichar + " " + hint(dword.word, messageinput.getText().charAt(0));
 
                 hints_store.setText(ichar);
                 }
