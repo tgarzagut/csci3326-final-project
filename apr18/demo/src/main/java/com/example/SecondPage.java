@@ -315,19 +315,19 @@ public class SecondPage {
         hangman.setAlignment(Pos.TOP_CENTER);
         hangman.setSpacing(150);
 
-        VBox buttonsrow = new VBox(button, guesscharButton);
+        HBox buttonsrow = new HBox(button, guesscharButton);
         buttonsrow.setAlignment(Pos.CENTER);
         buttonsrow.setSpacing(20);
 
         HBox guess = new HBox(entermessage, messageinput, buttonsrow);
         guess.setPadding(new Insets(30));
         guess.setAlignment(Pos.CENTER);
-        guess.setSpacing(30);
+        guess.setSpacing(50);
 
         wordLabel.setFont(new Font(20));
 
         
-        VBox mainContainer = new VBox(hangman, wordLabel, guess, guesscharButton);
+        VBox mainContainer = new VBox(hangman, wordLabel, guess);
         mainContainer.setSpacing(10);
         mainContainer.setAlignment(Pos.CENTER);
         
