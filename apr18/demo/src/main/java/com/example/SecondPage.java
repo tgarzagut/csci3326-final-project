@@ -109,22 +109,27 @@ public class SecondPage {
     }
     public char hint(String s, String g)
     {
-        char let=' ';
+        char let= ' ';
         char hints []= new char [s.length()];
-        for(int i=0; i<s.length(); i++)
+        for(int i=17; i<g.length(); i++)
         {
-            if(s.charAt(i)!=g)
+            if(g.charAt(i)!=' ')
             {
                 hints[i] = s.charAt(i);
             }
         }
         for(int x=0; x<hints.length; x++)
         {
-            int rando= (int)(Math.random()*s.length());
-            if(hints[x]!=g && hints[x]!=' ')
+
+            for(int i=0; i<s.length(); i++)
             {
-                return hints[rando];
+                if(hints[x]==s.charAt(i))
+                {
+                    x++;
+                    i=0;
+                }
             }
+            return hints[x];
         }
         return let;
     }
@@ -275,7 +280,7 @@ public class SecondPage {
                 }
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
-                System.out.println(hint(dword.word, ));
+                System.out.println(hint(dword.word, corr_guess.getText()));
                 }
             }
         });
