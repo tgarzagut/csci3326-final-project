@@ -241,6 +241,10 @@ public class SecondPage {
                 }
                  else
                 { 
+                    if(hcounter.couter==2)
+                {
+                    hint.setEffect(colorAdjust);
+                }
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
                 }
@@ -262,12 +266,7 @@ public class SecondPage {
         });
         //spacers
         
-        HBox hintbox = new HBox(hint_label, hint);
 
-
-        HBox hangman = new HBox(heartbox,canvas,hint);
-        hangman.setAlignment(Pos.TOP_CENTER);
-        hangman.setSpacing(75);
 
 
 
@@ -278,11 +277,7 @@ public class SecondPage {
         messageinput.setPrefWidth(38);
         messageinput.setFont(new Font(20));
 
-       // wordLabel.setText(getSize(dword.word));
-        Region spacer = new Region();
-        spacer.setPrefWidth(50);
-        Region spacer2 = new Region();
-        spacer2.setPrefWidth(50);
+
        
         //button if you want to guess the word
         Button button = new Button("Guess Word!");
@@ -305,15 +300,33 @@ public class SecondPage {
                 }
             }
         });
+        Button guesscharButton = new Button("Guess character");
+        guesscharButton.setStyle("-fx-background-color: purple; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px"); 
+        guesscharButton.setPrefWidth(120);
+        guesscharButton.setPrefHeight(50);
+        guesscharButton.setOnAction(event -> {
+            //action here
+        });
+        HBox hintbox = new HBox(hint_label, hint);
 
-        HBox guess = new HBox(entermessage, spacer, messageinput,spacer2,button);
+
+        HBox hangman = new HBox(heartbox,canvas,hint);
+        hangman.setAlignment(Pos.TOP_CENTER);
+        hangman.setSpacing(150);
+
+        VBox buttonsrow = new VBox(button, guesscharButton);
+        buttonsrow.setAlignment(Pos.CENTER);
+        buttonsrow.setSpacing(20);
+
+        HBox guess = new HBox(entermessage, messageinput, buttonsrow);
         guess.setPadding(new Insets(30));
-        guess.setAlignment(Pos.BOTTOM_CENTER);
+        guess.setAlignment(Pos.CENTER);
+        guess.setSpacing(30);
 
         wordLabel.setFont(new Font(20));
 
         
-        VBox mainContainer = new VBox(hangman, wordLabel, guess);
+        VBox mainContainer = new VBox(hangman, wordLabel, guess, guesscharButton);
         mainContainer.setSpacing(10);
         mainContainer.setAlignment(Pos.CENTER);
         
