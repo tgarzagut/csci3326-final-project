@@ -287,7 +287,7 @@ public class SecondPage {
         entermessage.setFont(Font.font("Arial"));
         entermessage.setStyle("-fx-font-size: 36px");
 
-        messageinput.setPrefWidth(38);
+        messageinput.setPrefWidth(150);
         messageinput.setFont(new Font(20));
 
 
