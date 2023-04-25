@@ -191,12 +191,19 @@ public class SecondPage {
     Image hanImage = new Image(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
     ImageView hangman = new ImageView();
 
-    String insidechar = " ";
+    String insidechar = "Wrong guesses: ";
     Label wrong_guess = new Label(insidechar);
+
+    String insideCchar = "Correct guesses: ";
+    Label corr_guess = new Label(insideCchar);
     
 
     public SecondPage(Stage oldStage){
-        wrong_guess.setPrefHeight(100);
+        //wrong_guess.setPrefHeight(200);
+        //corr_guess.setPrefHeight(200);
+        wrong_guess.setFont(Font.font
+        ("Helvetica",FontWeight.NORMAL, 36));
+        corr_guess.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
         hangman.setImage(hanImage);
         hangman.setFitHeight(300);
         hangman.setPreserveRatio(true);
@@ -373,6 +380,10 @@ public class SecondPage {
                 hangman.setPreserveRatio(true);
                 new Lose(newStage);
             }
+            if(guess(dword.word, messageinput.getText().charAt(0))==true){
+                insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
+                corr_guess.setText(insideCchar);
+            }
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
         });
@@ -393,7 +404,10 @@ public class SecondPage {
         guess.setSpacing(50);
 
         wordLabel.setFont(new Font(20));
-        HBox charbox = new HBox(wrong_guess);
+        VBox charbox = new VBox(wrong_guess, corr_guess);
+        charbox.setSpacing(20);
+        charbox.setAlignment(Pos.BOTTOM_LEFT);
+        charbox.setPadding(new Insets(0, 0, 0, 125));
 
         
         VBox mainContainer = new VBox(toprow, wordLabel, guess, charbox);
