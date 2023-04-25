@@ -179,11 +179,13 @@ public class SecondPage {
         System.out.println(g);
         return g;
     }
-    ImageView hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
-
+    Image hanImage = new Image(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
+    ImageView hangman = new ImageView();
+    
 
 
     public SecondPage(Stage oldStage){
+        hangman.setImage(hanImage);
         hangman.setFitHeight(300);
         hangman.setPreserveRatio(true);
         Stage newStage = new Stage();
@@ -296,24 +298,32 @@ public class SecondPage {
             //if(button.isPressed()){
                 if(gcounter.couter==3)
                 {
-                    heart3.setFill(Color.BLACK);
                     button.disableProperty();
                     new Lose(newStage);
+                        heart3.setFill(Color.BLACK);
                 }
                 else
                 {
                     gcounter.couter= gcounter.couter+1;
                     System.out.println(dword.word);    
                     System.out.println(guessWord(dword.word,messageinput.getText()));
-                    if(guessWord(dword.word, messageinput.getText())==true){
+                    if(guessWord(dword.word, messageinput.getText())==true)
+                    {
                         new Win(newStage);
                     }
+                    else 
+                    {
+                        if(gcounter.couter==1)
+                        {
+                            heart1.setFill(Color.BLACK);
+                        }
+                        else if(gcounter.couter==2)
+                        {
+                            heart2.setFill(Color.BLACK);
+                        }
+                    }
                 }
-                if(gcounter.couter==1){
-                    heart1.setFill(Color.BLACK);
-                }else if(gcounter.couter==2){
-                    heart2.setFill(Color.BLACK);
-                }
+
             //}
         });
         Button guesscharButton = new Button("Guess character");
@@ -325,22 +335,26 @@ public class SecondPage {
                 ccounter.couter = ccounter.couter+1;
             }
             if(ccounter.couter==1){
-                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_2").toExternalForm());
+                Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
+                hangman.setImage(hang0Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
             else if(ccounter.couter==2){
-                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_3").toExternalForm());
+                Image hang1Image = new Image(getClass().getResource("/com/example/images/hangman_3.png").toExternalForm());
+                hangman.setImage(hang1Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
             else if(ccounter.couter==3){
-                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_4").toExternalForm());
+                Image hang2Image = new Image(getClass().getResource("/com/example/images/hangman_4.png").toExternalForm());
+                hangman.setImage(hang2Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
             else if(ccounter.couter==4){
-                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_5").toExternalForm());
+                Image hang3Image = new Image(getClass().getResource("/com/example/images/hangman_5.png").toExternalForm());
+                hangman.setImage(hang3Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
                 new Lose(newStage);
