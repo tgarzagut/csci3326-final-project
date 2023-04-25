@@ -318,6 +318,9 @@ public class SecondPage {
         guesscharButton.setPrefWidth(120);
         guesscharButton.setPrefHeight(50);
         guesscharButton.setOnAction(event -> {
+            if(guess(dword.word, messageinput.getText().charAt(0))==false){
+                ccounter.couter = ccounter.couter+1;
+            }
             if(ccounter.couter==1){
                 hangman = (new ImageView(getClass().getResource("/com/example/images/hangman_2").toExternalForm()));
             }
@@ -333,9 +336,6 @@ public class SecondPage {
             }
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
-            if(guess(dword.word, messageinput.getText().charAt(0))==false){
-                ccounter.couter = ccounter.couter+1;
-            }
         });
         HBox hintbox = new HBox(hint_label, hint);
 
