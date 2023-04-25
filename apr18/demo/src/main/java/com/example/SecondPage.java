@@ -412,7 +412,7 @@ public class SecondPage {
         guess.setSpacing(50);
 
         wordLabel.setFont(new Font(20));
-        VBox charbox = new VBox(wrong_guess, corr_guess);
+        VBox charbox = new VBox(wrong_guess, corr_guess, hints_store);
         charbox.setSpacing(20);
         charbox.setAlignment(Pos.BOTTOM_LEFT);
         charbox.setPadding(new Insets(0, 0, 0, 125));
