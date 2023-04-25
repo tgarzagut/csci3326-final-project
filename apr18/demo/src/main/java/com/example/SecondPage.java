@@ -182,7 +182,11 @@ public class SecondPage {
     }
     ImageView hangman = new ImageView(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
 
+
+
     public SecondPage(Stage oldStage){
+        hangman.setFitHeight(300);
+        hangman.setPreserveRatio(true);
         Stage newStage = new Stage();
         newStage.initOwner(oldStage);
         newStage.setTitle("Hangman Deluxe! - Game");
@@ -323,15 +327,23 @@ public class SecondPage {
             }
             if(ccounter.couter==1){
                 hangman = new ImageView(getClass().getResource("/com/example/images/hangman_2").toExternalForm());
+                hangman.setFitHeight(300);
+                hangman.setPreserveRatio(true);
             }
             else if(ccounter.couter==2){
                 hangman = new ImageView(getClass().getResource("/com/example/images/hangman_3").toExternalForm());
+                hangman.setFitHeight(300);
+                hangman.setPreserveRatio(true);
             }
             else if(ccounter.couter==3){
                 hangman = new ImageView(getClass().getResource("/com/example/images/hangman_4").toExternalForm());
+                hangman.setFitHeight(300);
+                hangman.setPreserveRatio(true);
             }
             else if(ccounter.couter==4){
                 hangman = new ImageView(getClass().getResource("/com/example/images/hangman_5").toExternalForm());
+                hangman.setFitHeight(300);
+                hangman.setPreserveRatio(true);
                 new Lose(newStage);
             }
             System.out.println(dword.word);    
