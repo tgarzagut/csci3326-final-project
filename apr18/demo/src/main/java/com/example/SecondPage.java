@@ -191,11 +191,12 @@ public class SecondPage {
     Image hanImage = new Image(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
     ImageView hangman = new ImageView();
 
-    String insidechar = "empty";
+    String insidechar = " ";
     Label wrong_guess = new Label(insidechar);
     
 
     public SecondPage(Stage oldStage){
+        wrong_guess.setPrefHeight(100);
         hangman.setImage(hanImage);
         hangman.setFitHeight(300);
         hangman.setPreserveRatio(true);
