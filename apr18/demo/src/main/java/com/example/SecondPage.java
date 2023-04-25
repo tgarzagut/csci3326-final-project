@@ -288,26 +288,28 @@ public class SecondPage {
         button.setPrefWidth(120);
         button.setPrefHeight(50);
         button.setOnAction(event -> {
-            if(gcounter.couter==3)
-            {
-                heart3.setFill(Color.BLACK);
-                button.disableProperty();
-                new Lose(newStage);
-            }
-             else
-            {
-                gcounter.couter= gcounter.couter+1;
-                System.out.println(dword.word);    
-                System.out.println(guessWord(dword.word,messageinput.getText()));
-                if(guessWord(dword.word, messageinput.getText())==true){
-                    new Win(newStage);
+            //if(button.isPressed()){
+                if(gcounter.couter==3)
+                {
+                    heart3.setFill(Color.BLACK);
+                    button.disableProperty();
+                    new Lose(newStage);
                 }
-            }
-            if(gcounter.couter==1){
-                heart1.setFill(Color.BLACK);
-            }else if(gcounter.couter==2){
-                heart2.setFill(Color.BLACK);
-            }
+                else
+                {
+                    gcounter.couter= gcounter.couter+1;
+                    System.out.println(dword.word);    
+                    System.out.println(guessWord(dword.word,messageinput.getText()));
+                    if(guessWord(dword.word, messageinput.getText())==true){
+                        new Win(newStage);
+                    }
+                }
+                if(gcounter.couter==1){
+                    heart1.setFill(Color.BLACK);
+                }else if(gcounter.couter==2){
+                    heart2.setFill(Color.BLACK);
+                }
+            //}
         });
         Button guesscharButton = new Button("Guess character");
         guesscharButton.setStyle("-fx-background-color: purple; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px"); 
