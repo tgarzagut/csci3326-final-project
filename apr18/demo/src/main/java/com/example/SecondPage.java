@@ -344,7 +344,7 @@ public class SecondPage {
         guesscharButton.setOnAction(event -> {
             if(guess(dword.word, messageinput.getText().charAt(0))==false){
                 ccounter.couter = ccounter.couter+1;
-                insidechar = wrong_guess + " " + messageinput.getText().charAt(0);
+                insidechar = insidechar + " " + messageinput.getText().charAt(0);
                 wrong_guess = new Label(insidechar);
             }
             if(ccounter.couter==1){
