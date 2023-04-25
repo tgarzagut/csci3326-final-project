@@ -296,24 +296,32 @@ public class SecondPage {
             //if(button.isPressed()){
                 if(gcounter.couter==3)
                 {
-                    heart3.setFill(Color.BLACK);
                     button.disableProperty();
                     new Lose(newStage);
+                        heart3.setFill(Color.BLACK);
                 }
                 else
                 {
                     gcounter.couter= gcounter.couter+1;
                     System.out.println(dword.word);    
                     System.out.println(guessWord(dword.word,messageinput.getText()));
-                    if(guessWord(dword.word, messageinput.getText())==true){
+                    if(guessWord(dword.word, messageinput.getText())==true)
+                    {
                         new Win(newStage);
                     }
+                    else 
+                    {
+                        if(gcounter.couter==1)
+                        {
+                            heart1.setFill(Color.BLACK);
+                        }
+                        else if(gcounter.couter==2)
+                        {
+                            heart2.setFill(Color.BLACK);
+                        }
+                    }
                 }
-                if(gcounter.couter==1){
-                    heart1.setFill(Color.BLACK);
-                }else if(gcounter.couter==2){
-                    heart2.setFill(Color.BLACK);
-                }
+
             //}
         });
         Button guesscharButton = new Button("Guess character");
