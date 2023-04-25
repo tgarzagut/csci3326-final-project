@@ -287,7 +287,7 @@ public class SecondPage {
         button.setOnAction(event -> {
             if(gcounter.couter==3)
             {
-                heart3.setFill(Color.BLACK);
+                heart3.setFill(Color.web("#47090f"));
                 button.disableProperty();
                 new Lose(newStage);
             }
@@ -301,9 +301,9 @@ public class SecondPage {
                 }
             }
             if(gcounter.couter==1){
-                heart1.setFill(Color.BLACK);
+                heart1.setFill(Color.web("#47090f"));
             }else if(gcounter.couter==2){
-                heart2.setFill(Color.BLACK);
+                heart2.setFill(Color.web("#47090f"));
             }
         });
         Button guesscharButton = new Button("Guess character");
