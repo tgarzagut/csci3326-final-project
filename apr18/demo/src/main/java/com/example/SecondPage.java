@@ -380,12 +380,10 @@ public class SecondPage {
                 hangman.setPreserveRatio(true);
                 new Lose(newStage);
             }
-            if(guess(dword.word, messageinput.getText().charAt(0))==true){
-                insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
-                corr_guess.setText(insideCchar);
-            }
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
+            insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
+            corr_guess.setText(insideCchar);
         });
         HBox hintbox = new HBox(hint_label, hint);
 
