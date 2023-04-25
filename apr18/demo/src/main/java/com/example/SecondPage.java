@@ -181,8 +181,10 @@ public class SecondPage {
     }
     Image hanImage = new Image(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
     ImageView hangman = new ImageView();
-    
 
+    String insidechar = "";
+    Label wrong_guess = new Label(insidechar);
+    
 
     public SecondPage(Stage oldStage){
         hangman.setImage(hanImage);
@@ -333,6 +335,8 @@ public class SecondPage {
         guesscharButton.setOnAction(event -> {
             if(guess(dword.word, messageinput.getText().charAt(0))==false){
                 ccounter.couter = ccounter.couter+1;
+                insidechar = wrong_guess + " " + messageinput.getText().charAt(0);
+                wrong_guess = new Label(insidechar);
             }
             if(ccounter.couter==1){
                 Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
@@ -379,9 +383,10 @@ public class SecondPage {
         guess.setSpacing(50);
 
         wordLabel.setFont(new Font(20));
+        HBox charbox = new HBox(wrong_guess);
 
         
-        VBox mainContainer = new VBox(toprow, wordLabel, guess);
+        VBox mainContainer = new VBox(toprow, wordLabel, guess, charbox);
         mainContainer.setSpacing(10);
         mainContainer.setAlignment(Pos.CENTER);
         
