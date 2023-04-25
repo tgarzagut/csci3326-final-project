@@ -322,6 +322,7 @@ public class SecondPage {
                 ccounter.couter = ccounter.couter+1;
             }
             if(ccounter.couter==1){
+<<<<<<< HEAD
                 hangman = (new ImageView(getClass().getResource("com/example/images/hangman_2.png").toExternalForm()));
             }
             else if(ccounter.couter==2){
@@ -332,6 +333,18 @@ public class SecondPage {
             }
             else if(ccounter.couter==4){
                 hangman = (new ImageView(getClass().getResource("com/example/images/hangman_5.png").toExternalForm()));
+=======
+                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_2").toExternalForm());
+            }
+            else if(ccounter.couter==2){
+                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_3").toExternalForm());
+            }
+            else if(ccounter.couter==3){
+                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_4").toExternalForm());
+            }
+            else if(ccounter.couter==4){
+                hangman = new ImageView(getClass().getResource("/com/example/images/hangman_5").toExternalForm());
+>>>>>>> a12b0285cd286807822700d6bded8cbce1e8200b
                 new Lose(newStage);
             }
             System.out.println(dword.word);    
