@@ -191,7 +191,7 @@ public class SecondPage {
     Image hanImage = new Image(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
     ImageView hangman = new ImageView();
 
-    String insidechar = "";
+    String insidechar = "empty";
     Label wrong_guess = new Label(insidechar);
     
 
@@ -345,7 +345,7 @@ public class SecondPage {
             if(guess(dword.word, messageinput.getText().charAt(0))==false){
                 ccounter.couter = ccounter.couter+1;
                 insidechar = insidechar + " " + messageinput.getText().charAt(0);
-                wrong_guess = new Label(insidechar);
+                wrong_guess.setText(insidechar);
             }
             if(ccounter.couter==1){
                 Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
