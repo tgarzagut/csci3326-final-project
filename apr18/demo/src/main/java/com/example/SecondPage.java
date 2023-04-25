@@ -191,11 +191,19 @@ public class SecondPage {
     Image hanImage = new Image(getClass().getResource("/com/example/images/hangman_1.png").toExternalForm());
     ImageView hangman = new ImageView();
 
-    String insidechar = "";
+    String insidechar = "Wrong guesses: ";
     Label wrong_guess = new Label(insidechar);
+
+    String insideCchar = "Correct guesses: ";
+    Label corr_guess = new Label(insideCchar);
     
 
     public SecondPage(Stage oldStage){
+        //wrong_guess.setPrefHeight(200);
+        //corr_guess.setPrefHeight(200);
+        wrong_guess.setFont(Font.font
+        ("Helvetica",FontWeight.NORMAL, 36));
+        corr_guess.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
         hangman.setImage(hanImage);
         hangman.setFitHeight(300);
         hangman.setPreserveRatio(true);
@@ -295,7 +303,7 @@ public class SecondPage {
         entermessage.setFont(Font.font("Arial"));
         entermessage.setStyle("-fx-font-size: 36px");
 
-        messageinput.setPrefWidth(38);
+        messageinput.setPrefWidth(150);
         messageinput.setFont(new Font(20));
 
 
@@ -344,8 +352,12 @@ public class SecondPage {
         guesscharButton.setOnAction(event -> {
             if(guess(dword.word, messageinput.getText().charAt(0))==false){
                 ccounter.couter = ccounter.couter+1;
-                insidechar = wrong_guess + " " + messageinput.getText().charAt(0);
-                wrong_guess = new Label(insidechar);
+                insidechar = insidechar + " " + messageinput.getText().charAt(0);
+                wrong_guess.setText(insidechar);
+            }
+            else{
+                insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
+            corr_guess.setText(insideCchar);
             }
             if(ccounter.couter==1){
                 Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
@@ -392,7 +404,10 @@ public class SecondPage {
         guess.setSpacing(50);
 
         wordLabel.setFont(new Font(20));
-        HBox charbox = new HBox(wrong_guess);
+        VBox charbox = new VBox(wrong_guess, corr_guess);
+        charbox.setSpacing(20);
+        charbox.setAlignment(Pos.BOTTOM_LEFT);
+        charbox.setPadding(new Insets(0, 0, 0, 125));
 
         
         VBox mainContainer = new VBox(toprow, wordLabel, guess, charbox);
