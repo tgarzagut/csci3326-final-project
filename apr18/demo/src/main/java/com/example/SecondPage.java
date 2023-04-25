@@ -150,6 +150,9 @@ public class SecondPage {
     public static class hcounter{
         public static int couter = 0;
     }
+    public static class ccounter{
+        public static int couter = 0;
+    }
     public static class dword{
         public static String word = set();
     }
@@ -311,8 +314,14 @@ public class SecondPage {
         guesscharButton.setPrefWidth(120);
         guesscharButton.setPrefHeight(50);
         guesscharButton.setOnAction(event -> {
+            if(ccounter.couter==4){
+                new Lose(newStage);
+            }
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
+            if(guess(dword.word, messageinput.getText().charAt(0))==false){
+                ccounter.couter = ccounter.couter+1;
+            }
         });
         HBox hintbox = new HBox(hint_label, hint);
 
