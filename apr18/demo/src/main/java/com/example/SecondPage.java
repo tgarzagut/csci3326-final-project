@@ -107,15 +107,14 @@ public class SecondPage {
         }
         return H;  
     }
-    public char hint(String s, String g)
+    public char hint(String s, char g)
     {
         char let=' ';
         for(int i=0; i<s.length(); i++)
         {
-            if(s.charAt(i)!=g.charAt(i))
+            if(s.charAt(i)!=g)
             {
-                let=s.charAt(i);
-                break;
+                let = s.charAt(i);
             }
         }
         return let;
@@ -247,6 +246,7 @@ public class SecondPage {
                 }
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
+                System.out.println(hint(dword.word, messageinput.getText().charAt(0)));
                 }
             }
         });
@@ -305,10 +305,12 @@ public class SecondPage {
         guesscharButton.setPrefWidth(120);
         guesscharButton.setPrefHeight(50);
         guesscharButton.setOnAction(event -> {
+            int i = 0;
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
-            if(guess(dword.word, messageinput.getText().charAt(0))==true){
+            if(guess(dword.word, messageinput.getText().charAt(i))==true){
                 new Win(oldStage);
+                i++;
             }
         });
         HBox hintbox = new HBox(hint_label, hint);
