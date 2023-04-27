@@ -201,6 +201,9 @@ public class SecondPage {
 
     String insideCchar = "Correct guesses: ";
     Label corr_guess = new Label(insideCchar);
+
+    String ichar = "Hints: ";
+    Label hints_store = new Label(ichar);
     
 
     public SecondPage(Stage oldStage){
@@ -257,7 +260,7 @@ public class SecondPage {
 
 
         //button for the hint, I didnt put any options but it would just make a letter pop up?? I think we can make it disappear after 1 hint
-        Text hint_label = new Text("Hint");
+        Label hint_label = new Label("Hint");
         hint_label.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
         ImageView hint = new ImageView(getClass().getResource("/com/example/images/hint.png").toExternalForm());
         hint.setFitHeight(100);
@@ -280,7 +283,11 @@ public class SecondPage {
                 }
                 hcounter.couter=hcounter.couter+1;
                 System.out.println("Hint pressed.");
-                System.out.println(hint(dword.word, corr_guess.getText()));
+                System.out.println(hint(dword.word, messageinput.getText().charAt(0)));
+
+                ichar = ichar + " " + hint(dword.word, messageinput.getText().charAt(0));
+
+                hints_store.setText(ichar);
                 }
             }
         });
@@ -403,13 +410,14 @@ public class SecondPage {
         buttonsrow.setAlignment(Pos.CENTER);
         buttonsrow.setSpacing(20);
 
+
         HBox guess = new HBox(entermessage, messageinput, buttonsrow);
         guess.setPadding(new Insets(30));
         guess.setAlignment(Pos.CENTER);
         guess.setSpacing(50);
 
         wordLabel.setFont(new Font(20));
-        VBox charbox = new VBox(wrong_guess, corr_guess);
+        VBox charbox = new VBox(wrong_guess, corr_guess, hints_store);
         charbox.setSpacing(20);
         charbox.setAlignment(Pos.BOTTOM_LEFT);
         charbox.setPadding(new Insets(0, 0, 0, 125));
