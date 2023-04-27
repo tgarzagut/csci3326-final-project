@@ -107,29 +107,24 @@ public class SecondPage {
         }
         return H;  
     }
-    public char hint(String s, String g)
+    public char hint(String s, char g)
     {
-        char let= ' ';
+        char let=' ';
         char hints []= new char [s.length()];
-        for(int i=17; i<g.length(); i++)
+        for(int i=0; i<s.length(); i++)
         {
-            if(g.charAt(i)!=' ')
+            if(s.charAt(i)!=g)
             {
                 hints[i] = s.charAt(i);
             }
         }
         for(int x=0; x<hints.length; x++)
         {
-
-            for(int i=0; i<s.length(); i++)
+            int rando= (int)(Math.random()*s.length());
+            if(hints[x]!=g && hints[x]!=' ')
             {
-                if(hints[x]==s.charAt(i))
-                {
-                    x++;
-                    i=0;
-                }
+                return hints[rando];
             }
-            return hints[x];
         }
         return let;
     }
