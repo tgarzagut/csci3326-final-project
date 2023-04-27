@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 
 public class SecondPage {
     public static TextField messageinput = new TextField();
-    public static Label wordLabel = new Label("_ _ _ _ _");
+    public static Label wordLabel = new Label("FIND THE WORD!!!!");
     //label can be changed
     public Connection connect() {  
         // SQLite connection string  
@@ -261,7 +261,7 @@ public class SecondPage {
 
         //button for the hint, I didnt put any options but it would just make a letter pop up?? I think we can make it disappear after 1 hint
         Label hint_label = new Label("Hint");
-        hint_label.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
+        hints_store.setFont(Font.font("Helvetica",FontWeight.NORMAL, 36));
         ImageView hint = new ImageView(getClass().getResource("/com/example/images/hint.png").toExternalForm());
         hint.setFitHeight(100);
         hint.setPreserveRatio(true);
@@ -330,7 +330,7 @@ public class SecondPage {
                 if(gcounter.couter==3)
                 {
                     button.disableProperty();
-                    new Lose(newStage);
+                    new Lose(newStage,dword.word);
                         heart3.setFill(Color.BLACK);
                 }
                 else
@@ -371,30 +371,30 @@ public class SecondPage {
                 insideCchar = insideCchar + " " + messageinput.getText().charAt(0);
             corr_guess.setText(insideCchar);
             }
-            if(ccounter.couter==1){
+            if(ccounter.couter==2){
                 Image hang0Image = new Image(getClass().getResource("/com/example/images/hangman_2.png").toExternalForm());
                 hangman.setImage(hang0Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
-            else if(ccounter.couter==2){
+            else if(ccounter.couter==3){
                 Image hang1Image = new Image(getClass().getResource("/com/example/images/hangman_3.png").toExternalForm());
                 hangman.setImage(hang1Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
-            else if(ccounter.couter==3){
+            else if(ccounter.couter==4){
                 Image hang2Image = new Image(getClass().getResource("/com/example/images/hangman_4.png").toExternalForm());
                 hangman.setImage(hang2Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
             }
-            else if(ccounter.couter==4){
+            else if(ccounter.couter==5){
                 Image hang3Image = new Image(getClass().getResource("/com/example/images/hangman_5.png").toExternalForm());
                 hangman.setImage(hang3Image);
                 hangman.setFitHeight(300);
                 hangman.setPreserveRatio(true);
-                new Lose(newStage);
+                new Lose(newStage,dword.word);
             }
             System.out.println(dword.word);    
             System.out.println(guess(dword.word,messageinput.getText().charAt(0)));
